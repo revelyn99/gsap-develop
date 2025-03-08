@@ -1,8 +1,19 @@
-import animateTitle from './features/animateTitle'
-import createBadge from './features/createBasge'
-import './styles/style.css'
+import gsap from 'gsap'
 
-console.log('Welcome to Vite + JS + Webflow!')
-
-createBadge()
-animateTitle()
+gsap.from('.box', {
+  scrollTrigger: {
+    trigger: '.flex',
+    pin: true,
+    markers: true,
+    scrub: 2,
+    start: 'top center',
+    end: '+=900 center',
+  },
+  y: -100,
+  ease: 'back.out(4)',
+  stagger: {
+    amount: 3,
+    from: 'random',
+  },
+  markers: true,
+})
