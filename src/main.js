@@ -1,19 +1,12 @@
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+import './styles/style.css'
 
-gsap.from('.box', {
-  scrollTrigger: {
-    trigger: '.flex',
-    pin: true,
-    markers: true,
-    scrub: 2,
-    start: 'top center',
-    end: '+=900 center',
-  },
-  y: -100,
-  ease: 'back.out(4)',
-  stagger: {
-    amount: 3,
-    from: 'random',
-  },
+gsap.registerPlugin(ScrollTrigger)
+
+gsap.to('.svg-logo', {
+  rotation: 360,
+  duration: 2,
+  ease: 'bounce.out',
   markers: true,
 })
