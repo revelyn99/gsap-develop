@@ -10,5 +10,3 @@ gsap.to('.svg-logo', {
   ease: 'bounce.out',
   markers: true,
 })
-
-// Yarn Fix
