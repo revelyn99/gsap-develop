@@ -4,9 +4,28 @@ import './styles/style.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
-gsap.to('.svg-logo', {
+var $logo = '.svg-logo'
+// var $scrollspace = '.scroll-space'
+
+// gsap.set($logo, { scale: 0.5 })
+
+// var tl = gsap.timeline()
+// // prettier-ignore
+// tl
+
+let tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: $logo,
+    start: 'center center',
+    end: '200%',
+    markers: true,
+    pin: true,
+    toggleActions: 'restart none none pause',
+  },
+})
+
+tl.to($logo, {
   rotation: 360,
-  duration: 2,
+  scale: 1,
   ease: 'bounce.out',
-  markers: true,
 })
