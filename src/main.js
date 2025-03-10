@@ -1,10 +1,10 @@
 import gsap from 'gsap'
-// import DrawSVGPlugin from 'gsap/DrawSVGPlugin'
+import DrawSVGPlugin from 'gsap/all'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import './styles/style.css'
 
 gsap.registerPlugin(ScrollTrigger)
-// gsap.registerPlugin(DrawSVGPlugin)
+gsap.registerPlugin(DrawSVGPlugin)
 
 var $logo = '.svg-logo'
 var $bg = '.background'
@@ -13,9 +13,6 @@ var $sec2 = '.sec-2'
 var $sec3 = '.sec-3'
 var $sec4 = '.sec-4'
 var $sec5 = '.sec-5'
-// var $scrollspace = '.scroll-space'
-
-// gsap.set($logo, { scale: 0.5 })
 
 // var tl = gsap.timeline()
 // // prettier-ignore
