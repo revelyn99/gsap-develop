@@ -36,9 +36,9 @@ tl
   // prettier-ignore
 
   .to($logo, {
-    // rotation: 360,
-    // scale: 1.2,
-    // ease: 'bounce.out',
+    rotation: 360,
+    scale: 1.2,
+    ease: 'bounce.out',
   })
   .to($sec1, { opacity: 1 })
   .to($sec2, { opacity: 1 })
