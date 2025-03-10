@@ -1,10 +1,10 @@
 import gsap from 'gsap'
-import DrawSVGPlugin from 'gsap/all'
+// import DrawSVGPlugin from 'gsap/DrawSVGPlugin'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import './styles/style.css'
 
 gsap.registerPlugin(ScrollTrigger)
-gsap.registerPlugin(DrawSVGPlugin)
+// gsap.registerPlugin(DrawSVGPlugin)
 
 var $logo = '.svg-logo'
 var $bg = '.background'
@@ -41,7 +41,7 @@ tl
     // ease: 'bounce.out',
   })
   .to($sec1, { opacity: 1 })
-  .to($sec2, { opacity: 1, drawSVG: true })
+  .to($sec2, { opacity: 1 })
   .to($sec3, { opacity: 0 })
   .to($sec4, { opacity: 0 })
   .to($sec5, { opacity: 0 })
