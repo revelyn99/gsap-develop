@@ -25,5 +25,19 @@
   "dependencies": {
     "gsap": "^3.12.7",
     "normalize.css": "^8.0.1"
-  }
+  },
+  "description": "This is a basic setup with [ViteJs](https://vitejs.dev/) that you can use for your Webflow website. `jQuery` is already installed and declared as an external dependency.",
+  "main": "vite.config.js",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/revelyn99/gsap-develop.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/revelyn99/gsap-develop/issues"
+  },
+  "homepage": "https://github.com/revelyn99/gsap-develop#readme"
 }
