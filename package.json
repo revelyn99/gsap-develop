@@ -23,7 +23,7 @@
     "vite-plugin-eslint": "^1.3.0"
   },
   "dependencies": {
-    "gsap": "^3.12.7",
+    "gsap": "npm:@gsap/shockingly@^3.12.7",
     "normalize.css": "^8.0.1"
   },
   "description": "This is a basic setup with [ViteJs](https://vitejs.dev/) that you can use for your Webflow website. `jQuery` is already installed and declared as an external dependency.",
