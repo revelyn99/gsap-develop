@@ -6,12 +6,12 @@ import './styles/style.css'
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin)
 
 var $logo = '.svg-logo'
-var $bg = '.background'
-var $sec1 = '.sec-1'
-var $sec2 = '.sec-2'
-var $sec3 = '.sec-3'
-var $sec4 = '.sec-4'
-var $sec5 = '.sec-5'
+// var $bg = '.background'
+// var $sec1 = '.sec-1'
+// var $sec2 = '.sec-2'
+// var $sec3 = '.sec-3'
+// var $sec4 = '.sec-4'
+// var $sec5 = '.sec-5'
 var $lin = '.st1'
 
 // // prettier-ignore
