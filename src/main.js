@@ -13,15 +13,13 @@ var $sec3 = '.sec-3'
 var $sec4 = '.sec-4'
 var $sec5 = '.sec-5'
 var $lin = '.st1'
-// var tl = gsap.timeline()
-// // prettier-ignore
-// tl
 
-// gsap.from($sec2, { duration: 1, drawSVG: 0 })
+// // prettier-ignore
 
 gsap.from($lin, {
-  duration: 3,
+  duration: 3.5,
   drawSVG: 1,
+  delay: 0.2,
 })
 
 let tl = gsap.timeline({
@@ -29,7 +27,7 @@ let tl = gsap.timeline({
     trigger: $logo,
     scale: 1,
     start: 'center center',
-    end: '550%',
+    end: '200%',
     markers: true,
     pin: true,
     toggleActions: 'restart none none restart',
@@ -37,10 +35,11 @@ let tl = gsap.timeline({
 })
 
 tl
+
   // prettier-ignore
 
   .to($logo, {
-    rotation: 360,
+    // rotation: 360,
     scale: 1.2,
     ease: 'bounce.out',
   })

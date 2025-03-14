@@ -1,19 +1,5 @@
 body {
   margin: 0;
-  background: #d5d9da;
-}
-
-.scroll {
-  height: 100svh;
-}
-
-.scroll-space {
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100svh;
-  display: flex;
-  background: #acacac;
 }
 
 .svg-logo {
