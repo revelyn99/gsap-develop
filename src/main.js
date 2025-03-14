@@ -43,6 +43,8 @@ tl
     scale: 1.2,
     ease: 'bounce.out',
   })
+
+/*
   .to($sec1, { opacity: 1 })
   .to($sec2, { opacity: 1 })
   .to($sec3, { opacity: 0 })
@@ -53,3 +55,4 @@ tl
   .to($sec4, { opacity: 1 })
   .to($sec5, { opacity: 1 })
   .to($bg, { opacity: 1 })
+*/
