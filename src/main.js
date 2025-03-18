@@ -40,7 +40,7 @@ tl
 
   .to($logo, {
     // rotation: 360,
-    scale: 1.2,
+    // scale: 1.2,
     ease: 'bounce.out',
   })
 
