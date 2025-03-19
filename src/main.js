@@ -5,7 +5,7 @@ import './styles/style.css'
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin)
 
-var $logo = '.svg-logo'
+// var $logo = '.svg-logo'
 // var $bg = '.background'
 // var $sec1 = '.sec-1'
 // var $sec2 = '.sec-2'
@@ -16,33 +16,33 @@ var $lin = '.st1'
 
 // // prettier-ignore
 
-gsap.from($lin, {
-  duration: 3.5,
-  drawSVG: 1,
-  delay: 0.2,
-})
+// gsap.from($lin, {
+//   duration: 3.5,
+//   drawSVG: 1,
+//   delay: 0.2,
+// })
 
-let tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: $logo,
-    scale: 1,
-    start: 'center center',
-    end: '200%',
-    markers: true,
-    pin: true,
-    toggleActions: 'restart none none restart',
-  },
-})
+// let tl = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: $logo,
+//     scale: 1,
+//     start: 'center center',
+//     end: '200%',
+//     markers: true,
+//     pin: true,
+//     toggleActions: 'restart none none restart',
+//   },
+// })
 
-tl
+// tl
 
-  // prettier-ignore
+//   // prettier-ignore
 
-  .to($logo, {
-    // rotation: 360,
-    scale: 1.2,
-    ease: 'bounce.out',
-  })
+//   .to($logo, {
+//     // rotation: 360,
+//     scale: 1.2,
+//     ease: 'bounce.out',
+//   })
 
 /*
   .to($sec1, { opacity: 1 })
@@ -56,3 +56,16 @@ tl
   .to($sec5, { opacity: 1 })
   .to($bg, { opacity: 1 })
 */
+
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.bg-content',
+    toggleActions: 'restart none none restart',
+  },
+})
+
+tl.from($lin, {
+  duration: 3.5,
+  drawSVG: 1,
+  delay: 1.5,
+})
