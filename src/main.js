@@ -6,6 +6,9 @@ import './styles/style.css'
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin)
 
 var $lin = '.st1'
+var $heroLine = '.herost1'
+
+gsap.from($heroLine, { duration: 3.5, drawSVG: 1, delay: 0.25 })
 
 // contest timeline *******************************************************
 const tl = gsap.timeline({
@@ -21,7 +24,7 @@ const tl = gsap.timeline({
 tl.from($lin, { duration: 3.5, drawSVG: 1, delay: 0.25 })
   .from(
     '.h2-contest',
-    { y: 20, opacity: 0, ease: 'power1.out', duration: 0.25 },
+    { y: 20, opacity: 0, ease: 'power1.out', duration: 0.15 },
     '-=3.25'
   ) // Shortened label format
   .from('.p-contest', { opacity: 0, ease: 'power2.out', duration: 0.65 }, '-=3')
@@ -63,45 +66,50 @@ let logo = gsap.timeline({
 })
 
 logo
-  // Initial state
-  .to('.svg-logo', { scale: 1.1, x: '50%', duration: 0.05 }, 0)
-  .to('.feathers .l', { opacity: 0, duration: 0.05 }, '<')
-  .to('.hawk-head', { opacity: 0, duration: 0.05 }, '<')
-  .to('.date', { opacity: 0, duration: 0.05 }, '<')
+  .addLabel('stop0', 0) // Start
+  .addLabel('stop1', 0.0) // Show "The Bold 50"
+  .addLabel('stop2', 0.8) // Show "Est. 1976"
+  .addLabel('stop3', 1.3) // Show Hawk Head
+  .addLabel('stop4', 1.7) // Show Feathers
+  .addLabel('stop5', 2.2) // Final touch: slight rotation
 
-  // Stop 1
-  .to('.date', { opacity: 1, duration: 0.05 }, 0.2)
-  .to('.50bg, .50fg', { opacity: 0, duration: 0.05 }, '<')
+  // stop 0
+  .to('.hawk-head', { opacity: 0, duration: 0.1 }, 'stop0')
+  .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
+  .to('.feathers .l', { opacity: 0, duration: 0.1 }, 'stop0')
+  .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
+  .to('.svg-logo', { scale: 1.1, x: '50%', duration: 0.1 }, 'stop0')
 
-  // 🔁 Redundantly ensure hawk-head is 0 before showing it again (safe)
-  .set('.hawk-head', { opacity: 0 }, 0.39)
+  // stop 1 The Bold 50
+  .to('.numBg, .numFg', { opacity: 1, duration: 0.1 }, 'stop1')
 
-  // Stop 2 — should now work
-  .to('.hawk-head', { opacity: 1, duration: 0.1 }, 0.4)
-  .to('.hawk-head', { scale: 1.2, duration: 0.1, yoyo: true, repeat: 1 }, 0.4) // just for visibility
-  .to('.date', { opacity: 0, duration: 0.05 }, '<')
+  // stop 2 Est. 1976
+  .to('.numBg, .numFg', { opacity: 0, duration: 0.1 }, 'stop2')
+  .to('.date', { opacity: 1, duration: 0.1 }, 'stop2')
 
-  // Stop 3 — no changes right now
-  .to('.svg-logo', {}, 0.6)
+  // stop 3 The Hawk Head
+  .to('.date', { opacity: 0, duration: 0.1 }, 'stop3')
 
-  // Stop 4 — no changes right now
-  .to('.svg-logo', {}, 0.8)
+  .to('.hawk-head', { opacity: 1, y: '-20px', duration: 0.1 }, 'stop3')
 
-// Force timeline duration to 1
-logo.totalDuration(1)
+  // stop 4 Feathers
+  .to('.hawk-head', { opacity: 0, duration: 0.01 }, 'stop4')
+  .to(
+    '.feathers .l',
+    {
+      opacity: 1,
 
-// stop 3 ***
-// .to(
-//   '.feathers .l',
-//   {
-//     opacity: 1,
-//     scale: 1.5,
-//     transformOrigin: '50% 50%', // center center
-//     stagger: {
-//       amount: 0.1,
-//       ease: 'power3.inOut',
-//     },
-//   },
-//   '+=60%'
-// )
-// .to('.hawk-head', { opacity: 0 }, '<')
+      stagger: { amount: 0.3, from: 'center' },
+      duration: 0.01,
+    },
+    'stop4'
+  )
+
+  // stop 5
+  .to('.hawk-head', { opacity: 1, y: '0', duration: 0.1 }, 'stop5')
+  .to('.date', { opacity: 1, duration: 0.1 }, 'stop5')
+  .to('.feathers .l', { opacity: 1, duration: 0.4 }, 'stop5')
+  .to('.date', { opacity: 1, duration: 0.1 }, 'stop5')
+  .to('.numBg, .numFg', { opacity: 1, duration: 0.1 }, 'stop5')
+
+logo.totalDuration(3.3)
