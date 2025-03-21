@@ -5,66 +5,37 @@ import './styles/style.css'
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin)
 
-// var $logo = '.svg-logo'
-// var $bg = '.background'
-// var $sec1 = '.sec-1'
-// var $sec2 = '.sec-2'
-// var $sec3 = '.sec-3'
-// var $sec4 = '.sec-4'
-// var $sec5 = '.sec-5'
 var $lin = '.st1'
 
-// // prettier-ignore
-
-// prettier-ignore
-const tl = gsap.timeline({ 
-  scrollTrigger: { 
-    trigger: '#sec-contest', 
+// contest timeline *******************************************************
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#sec-contest',
     start: 'top 80%', // Adjust for better timing
     end: 'bottom 20%', // Optional: Define when it stops
-    // markers: true, 
-    toggleActions: 'restart none none none', 
-  } 
-});
-
-//
-// prettier-ignore
-tl.from($lin, { duration: 3.5, drawSVG: 1, delay: 0.25 })
-  .from('.h2-contest', { y: 20, opacity: 0, ease: 'power1.out', duration: 0.25 }, '-=3.25') // Shortened label format
-  .from('.p-contest', { opacity: 0, ease: 'power2.out', duration: 0.65 }, '-=3')
-  .from('.contest-txt-col .link-out', { opacity: 0, duration: 0.85 }, '-=2.75');
-
-// pin
-
-let logo = gsap.timeline({
-  scrollTrigger: {
-    trigger: '.logo-div',
-    start: 'center center',
-    end: '500%',
-    pin: true,
-    scrub: 1, // Smooth scrubbing
-    toggleActions: 'restart restart none restart',
-    markers: true, // Uncomment for debugging
-    onUpdate: (self) => console.log('Progress:', self.progress),
+    // markers: true,
+    toggleActions: 'restart none none none',
   },
 })
 
-// // prettier-ignore
-logo
-  .to('.svg-logo', { scale: 1.1, x: '50%' }) // Slight enlargement
-  .to('.svg-logo', { rotation: 8 }, '+=40%') // Increase scale more
-  .to('.svg-logo', { rotation: 15 }, '+=60%') // Slight tilt
-  .to('.svg-logo', { skewX: 10 }, '+=80%') // Subtle skew
-  .to('.svg-logo', { rotation: -15 }, '+=100%') // Fade slightly
-// // prettier-ignore
+tl.from($lin, { duration: 3.5, drawSVG: 1, delay: 0.25 })
+  .from(
+    '.h2-contest',
+    { y: 20, opacity: 0, ease: 'power1.out', duration: 0.25 },
+    '-=3.25'
+  ) // Shortened label format
+  .from('.p-contest', { opacity: 0, ease: 'power2.out', duration: 0.65 }, '-=3')
+  .from('.contest-txt-col .link-out', { opacity: 0, duration: 0.85 }, '-=2.75')
+// end contest timeline *******************************************************
+
+// logo txt ************************************************************
 gsap.utils.toArray('.logo-div-txt').forEach((element) => {
   gsap
     .timeline({
       scrollTrigger: {
         trigger: element,
         start: '20% center',
-        toggleActions: 'play reverse play reverse', // This will reverse on scroll out
-        // markers: true, // Remove this in production
+        toggleActions: 'play reverse play reverse',
       },
     })
     .from(element.querySelector('.logo-txt'), {
@@ -72,3 +43,65 @@ gsap.utils.toArray('.logo-div-txt').forEach((element) => {
       duration: 0.65,
     })
 })
+// end logo txt ************************************************************
+
+// *********************
+// *********************
+
+let logo = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.logo-div',
+    start: 'center center',
+    end: '500%',
+    pin: true,
+    scrub: 1,
+    toggleActions: 'restart restart none restart',
+    markers: true,
+    onUpdate: (self) => console.log('Progress:', self.progress),
+  },
+  duration: 1,
+})
+
+logo
+  // Initial state
+  .to('.svg-logo', { scale: 1.1, x: '50%', duration: 0.05 }, 0)
+  .to('.feathers .l', { opacity: 0, duration: 0.05 }, '<')
+  .to('.hawk-head', { opacity: 0, duration: 0.05 }, '<')
+  .to('.date', { opacity: 0, duration: 0.05 }, '<')
+
+  // Stop 1
+  .to('.date', { opacity: 1, duration: 0.05 }, 0.2)
+  .to('.50bg, .50fg', { opacity: 0, duration: 0.05 }, '<')
+
+  // 🔁 Redundantly ensure hawk-head is 0 before showing it again (safe)
+  .set('.hawk-head', { opacity: 0 }, 0.39)
+
+  // Stop 2 — should now work
+  .to('.hawk-head', { opacity: 1, duration: 0.1 }, 0.4)
+  .to('.hawk-head', { scale: 1.2, duration: 0.1, yoyo: true, repeat: 1 }, 0.4) // just for visibility
+  .to('.date', { opacity: 0, duration: 0.05 }, '<')
+
+  // Stop 3 — no changes right now
+  .to('.svg-logo', {}, 0.6)
+
+  // Stop 4 — no changes right now
+  .to('.svg-logo', {}, 0.8)
+
+// Force timeline duration to 1
+logo.totalDuration(1)
+
+// stop 3 ***
+// .to(
+//   '.feathers .l',
+//   {
+//     opacity: 1,
+//     scale: 1.5,
+//     transformOrigin: '50% 50%', // center center
+//     stagger: {
+//       amount: 0.1,
+//       ease: 'power3.inOut',
+//     },
+//   },
+//   '+=60%'
+// )
+// .to('.hawk-head', { opacity: 0 }, '<')
