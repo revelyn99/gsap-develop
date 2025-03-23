@@ -1,33 +1,16 @@
 import gsap from 'gsap'
-import { DrawSVGPlugin, ScrollSmoother, SplitText } from 'gsap/all'
+import { DrawSVGPlugin, ScrollSmoother } from 'gsap/all'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, ScrollSmoother, SplitText)
+gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, ScrollSmoother)
 var $lin = '.st1'
 var $heroLine = '.herost1'
 
 ScrollSmoother.create({
   content: '#smooth-content',
   wrapper: '#smooth-wrapper',
-  smooth: 1.5,
+  smooth: 1,
   effects: true,
-})
-
-var split = new SplitText('#header', { type: 'chars' })
-//now animate each character into place from 100px above, fading in:
-function init() {
-  gsap.from(split.chars, {
-    duration: 3,
-    y: 10,
-    autoAlpha: 0,
-    stagger: 0.01,
-    ease: 'elastic',
-    scale: 0.9,
-    delay: 1,
-  })
-}
-window.addEventListener('load', function () {
-  init() //do stuff
 })
 
 // *************************
