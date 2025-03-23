@@ -9,7 +9,7 @@ var $heroLine = '.herost1'
 ScrollSmoother.create({
   content: '#smooth-content',
   wrapper: '#smooth-wrapper',
-  smooth: 1,
+  smooth: 100,
   effects: true,
 })
 
