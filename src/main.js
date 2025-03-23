@@ -1,17 +1,17 @@
 import gsap from 'gsap'
-import { DrawSVGPlugin /*ScrollSmoother*/ } from 'gsap/all'
+import { DrawSVGPlugin, ScrollSmoother } from 'gsap/all'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin /*ScrollSmoother*/)
+gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, ScrollSmoother)
 var $lin = '.st1'
 var $heroLine = '.herost1'
 
-// ScrollSmoother.create({
-//   content: '#smooth-content',
-//   wrapper: '#smooth-wrapper',
-//   smooth: 100,
-//   effects: true,
-// })
+ScrollSmoother.create({
+  content: '#smooth-content',
+  wrapper: '#smooth-wrapper',
+  smooth: 2,
+  // effects: true,
+})
 
 // *************************
 
@@ -63,7 +63,7 @@ let logo = gsap.timeline({
   scrollTrigger: {
     trigger: '.logo-div',
     start: 'center center',
-    end: '400%',
+    end: '370%',
     pin: true,
     scrub: 1,
     toggleActions: 'restart restart none restart',
