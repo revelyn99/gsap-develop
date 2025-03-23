@@ -1,12 +1,36 @@
 import gsap from 'gsap'
-import { DrawSVGPlugin } from 'gsap/all'
+import { DrawSVGPlugin, ScrollSmoother, SplitText } from 'gsap/all'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import './styles/style.css'
 
-gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin)
-
+gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, ScrollSmoother, SplitText)
 var $lin = '.st1'
 var $heroLine = '.herost1'
+
+ScrollSmoother.create({
+  content: '#smooth-content',
+  wrapper: '#smooth-wrapper',
+  smooth: 1.5,
+  effects: true,
+})
+
+var split = new SplitText('#header', { type: 'chars' })
+//now animate each character into place from 100px above, fading in:
+function init() {
+  gsap.from(split.chars, {
+    duration: 3,
+    y: 10,
+    autoAlpha: 0,
+    stagger: 0.01,
+    ease: 'elastic',
+    scale: 0.9,
+    delay: 1,
+  })
+}
+window.addEventListener('load', function () {
+  init() //do stuff
+})
+
+// *************************
 
 gsap.from($heroLine, { duration: 3.5, drawSVG: 1, delay: 0.25 })
 
@@ -37,8 +61,9 @@ gsap.utils.toArray('.logo-div-txt').forEach((element) => {
     .timeline({
       scrollTrigger: {
         trigger: element,
-        start: '20% center',
+        start: '20% bottom',
         toggleActions: 'play reverse play reverse',
+        markers: true,
       },
     })
     .from(element.querySelector('.logo-txt'), {
@@ -55,11 +80,11 @@ let logo = gsap.timeline({
   scrollTrigger: {
     trigger: '.logo-div',
     start: 'center center',
-    end: '500%',
+    end: '400%',
     pin: true,
     scrub: 1,
     toggleActions: 'restart restart none restart',
-    markers: true,
+    // markers: true,
     onUpdate: (self) => console.log('Progress:', self.progress),
   },
   duration: 1,
