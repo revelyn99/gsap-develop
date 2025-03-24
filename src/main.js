@@ -133,7 +133,8 @@ logo
   .to('.numBg, .numFg', { opacity: 1, duration: 0.1 }, 'stop1')
 
   // stop 2 Est. 1976
-  .to('.numBg, .numFg', { opacity: 0.1, duration: 0.1 }, 'stop2')
+  .to('.numFg', { opacity: 0.0, duration: 0.1 }, 'stop2')
+  .to('.numBg', { opacity: 0.1, duration: 0.1 }, 'stop2')
   .to('.date', { opacity: 1, duration: 0.1 }, 'stop2')
 
   // stop 3 The Hawk Head
