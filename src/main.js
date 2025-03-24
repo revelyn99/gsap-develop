@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, ScrollSmoother)
 var $lin = '.st1'
-var $heroLine = '.herost1'
+var $lin2 = '.lst1'
 
 ScrollSmoother.create({
   content: '#smooth-content',
@@ -19,7 +19,17 @@ ScrollSmoother.create({
 
 // *************************
 
-gsap.from($heroLine, { duration: 3.5, drawSVG: 1, delay: 0.25 })
+const tl2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#sec-scroll',
+    start: 'top 80%', // Adjust for better timing
+    end: 'bottom 20%', // Optional: Define when it stops
+    // markers: true,
+    toggleActions: 'restart none none none',
+  },
+})
+
+tl2.from($lin2, { duration: 3.5, drawSVG: 1, delay: 0.25 })
 
 // contest timeline *******************************************************
 const tl = gsap.timeline({
@@ -75,7 +85,7 @@ let logo = gsap.timeline({
   scrollTrigger: {
     trigger: '.logo-div',
     start: 'center center',
-    end: '400%',
+    end: '433%',
     pin: true,
     scrub: 1,
     toggleActions: 'restart restart none restart',
@@ -86,11 +96,13 @@ let logo = gsap.timeline({
 })
 
 window.addEventListener('load', () => {
-  gsap.to('#sec-hero-intro', {
+  gsap.to('#sec-hero-intro *', {
     opacity: 1,
-    duration: 2,
+    duration: 1,
+    scale: 1.02,
     delay: 0.5,
     ease: 'power2.out',
+    stagger: 0.05, // smooth stagger
   })
 })
 
