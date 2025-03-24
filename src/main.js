@@ -65,27 +65,33 @@ let logo = gsap.timeline({
     start: 'center center',
     end: '370%',
     pin: true,
-    // scrub: 1,
-    toggleActions: 'restart restart none restart',
+    scrub: true, // Or try scrub: 0.3
+    anticipatePin: 1,
     markers: true,
     onUpdate: (self) => console.log('Progress:', self.progress),
   },
   duration: 1,
 })
 
-logo.addLabel('stop0', 0) // Start
-// .addLabel('stop1', 0.0) // Show "The Bold 50"
-// .addLabel('stop2', 0.8) // Show "Est. 1976"
-// .addLabel('stop3', 1.3) // Show Hawk Head
-// .addLabel('stop4', 1.7) // Show Feathers
-// .addLabel('stop5', 2.2) // Final touch: slight rotation
+logo
+  .addLabel('stop0', 0) // Start
+  // .addLabel('stop1', 0.0) // Show "The Bold 50"
+  // .addLabel('stop2', 0.8) // Show "Est. 1976"
+  // .addLabel('stop3', 1.3) // Show Hawk Head
+  // .addLabel('stop4', 1.7) // Show Feathers
+  // .addLabel('stop5', 2.2) // Final touch: slight rotation
 
-// // stop 0
-// .to('.hawk-head', { opacity: 0, duration: 0.1 }, 'stop0')
-// .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
-// .to('.feathers .l', { opacity: 0, duration: 0.1 }, 'stop0')
-// .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
-// .to('.svg-logo', { x: '50%', duration: 0.1 }, 'stop0')
+  // // stop 0
+  // .to('.hawk-head', { opacity: 0, duration: 0.1 }, 'stop0')
+  // .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
+  // .to('.feathers .l', { opacity: 0, duration: 0.1 }, 'stop0')
+  // .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
+  // .to('.svg-logo', { x: '50%', duration: 0.1 }, 'stop0')
+  .to('.svg-logo', {
+    rotation: 11,
+    duration: 20,
+    force3D: true,
+  })
 
 // // stop 1 The Bold 50
 // .to('.numBg, .numFg', { opacity: 1, duration: 0.1 }, 'stop1')
