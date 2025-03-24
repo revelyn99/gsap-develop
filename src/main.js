@@ -78,7 +78,7 @@ let logo = gsap.timeline({
     pin: true,
     scrub: 1,
     toggleActions: 'restart restart none restart',
-    markers: true,
+    // markers: true,
     onUpdate: (self) => console.log('Progress:', self.progress),
   },
   duration: 1,
