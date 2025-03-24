@@ -73,50 +73,51 @@ let logo = gsap.timeline({
   duration: 1,
 })
 
-logo.addLabel('stop0', 0) // Start
-// .addLabel('stop1', 0.0) // Show "The Bold 50"
-// .addLabel('stop2', 0.8) // Show "Est. 1976"
-// .addLabel('stop3', 1.3) // Show Hawk Head
-// .addLabel('stop4', 1.7) // Show Feathers
-// .addLabel('stop5', 2.2) // Final touch: slight rotation
+logo
+  .addLabel('stop0', 0) // Start
+  .addLabel('stop1', 0.0) // Show "The Bold 50"
+  .addLabel('stop2', 0.8) // Show "Est. 1976"
+  .addLabel('stop3', 1.3) // Show Hawk Head
+  .addLabel('stop4', 1.7) // Show Feathers
+  .addLabel('stop5', 2.2) // Final touch: slight rotation
 
-// // stop 0
-// .to('.hawk-head', { opacity: 0, duration: 0.1 }, 'stop0')
-// .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
-// .to('.feathers .l', { opacity: 0, duration: 0.1 }, 'stop0')
-// .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
-// .to('.svg-logo', { x: '50%', duration: 0.1 }, 'stop0')
+  // stop 0
+  .to('.hawk-head', { opacity: 0, duration: 0.1 }, 'stop0')
+  .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
+  .to('.feathers .l', { opacity: 0, duration: 0.1 }, 'stop0')
+  .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
+  .to('.svg-logo', { x: '50%', duration: 0.1 }, 'stop0')
 
-// // stop 1 The Bold 50
-// .to('.numBg, .numFg', { opacity: 1, duration: 0.1 }, 'stop1')
+  // stop 1 The Bold 50
+  .to('.numBg, .numFg', { opacity: 1, duration: 0.1 }, 'stop1')
 
-// // stop 2 Est. 1976
-// .to('.numBg, .numFg', { opacity: 0, duration: 0.1 }, 'stop2')
-// .to('.date', { opacity: 1, duration: 0.1 }, 'stop2')
+  // stop 2 Est. 1976
+  .to('.numBg, .numFg', { opacity: 0, duration: 0.1 }, 'stop2')
+  .to('.date', { opacity: 1, duration: 0.1 }, 'stop2')
 
-// // stop 3 The Hawk Head
-// .to('.date', { opacity: 0, duration: 0.1 }, 'stop3')
+  // stop 3 The Hawk Head
+  .to('.date', { opacity: 0, duration: 0.1 }, 'stop3')
 
-// .to('.hawk-head', { opacity: 1, y: '-20px', duration: 0.1 }, 'stop3')
+  .to('.hawk-head', { opacity: 1, y: '-20px', duration: 0.1 }, 'stop3')
 
-// // stop 4 Feathers
-// .to('.hawk-head', { opacity: 0, duration: 0.01 }, 'stop4')
-// .to(
-//   '.feathers .l',
-//   {
-//     opacity: 1,
+  // stop 4 Feathers
+  .to('.hawk-head', { opacity: 0, duration: 0.01 }, 'stop4')
+  .to(
+    '.feathers .l',
+    {
+      opacity: 1,
 
-//     stagger: { amount: 0.3, from: 'center' },
-//     duration: 0.01,
-//   },
-//   'stop4'
-// )
+      stagger: { amount: 0.3, from: 'center' },
+      duration: 0.01,
+    },
+    'stop4'
+  )
 
-// // stop 5
-// .to('.hawk-head', { opacity: 1, y: '0', duration: 0.1 }, 'stop5')
-// .to('.date', { opacity: 1, duration: 0.1 }, 'stop5')
-// .to('.feathers .l', { opacity: 1, duration: 0.4 }, 'stop5')
-// .to('.date', { opacity: 1, duration: 0.1 }, 'stop5')
-// .to('.numBg, .numFg', { opacity: 1, duration: 0.1 }, 'stop5')
+  // stop 5
+  .to('.hawk-head', { opacity: 1, y: '0', duration: 0.1 }, 'stop5')
+  .to('.date', { opacity: 1, duration: 0.1 }, 'stop5')
+  .to('.feathers .l', { opacity: 1, duration: 0.4 }, 'stop5')
+  .to('.date', { opacity: 1, duration: 0.1 }, 'stop5')
+  .to('.numBg, .numFg', { opacity: 1, duration: 0.1 }, 'stop5')
 
 logo.totalDuration(3.3)
