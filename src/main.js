@@ -74,7 +74,7 @@ let logo = gsap.timeline({
   scrollTrigger: {
     trigger: '.logo-div',
     start: 'center center',
-    end: '500%',
+    end: '400%',
     pin: true,
     scrub: 1,
     toggleActions: 'restart restart none restart',
@@ -87,10 +87,10 @@ let logo = gsap.timeline({
 logo
   .addLabel('stop0', 0) // Start
   .addLabel('stop1', 0.0) // Show "The Bold 50"
-  .addLabel('stop2', 0.8) // Show "Est. 1976"
-  .addLabel('stop3', 1.3) // Show Hawk Head
-  .addLabel('stop4', 1.7) // Show Feathers
-  .addLabel('stop5', 2.2) // Final touch: slight rotation
+  .addLabel('stop2', 0.35) // Show "Est. 1976"
+  .addLabel('stop3', 0.7) // Show Hawk Head
+  .addLabel('stop4', 1.1) // Show Feathers
+  .addLabel('stop5', 1.6) // Final touch: slight rotation
 
   // stop 0
   .to('.hawk-head', { opacity: 0, duration: 0.1 }, 'stop0')
@@ -131,4 +131,4 @@ logo
   .to('.date', { opacity: 1, duration: 0.1 }, 'stop5')
   .to('.numBg, .numFg', { opacity: 1, duration: 0.1 }, 'stop5')
 
-logo.totalDuration(6.3)
+logo.totalDuration(3)
