@@ -6,13 +6,6 @@ gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, ScrollSmoother)
 var $lin = '.st1'
 var $heroLine = '.herost1'
 
-// ScrollSmoother.create({
-//   content: '#smooth-content',
-//   wrapper: '#smooth-wrapper',
-//   smooth: 2,
-//   // effects: true,
-// })
-
 ScrollSmoother.create({
   content: '#smooth-content',
   wrapper: '#smooth-wrapper',
@@ -45,8 +38,16 @@ tl.from($lin, { duration: 3.5, drawSVG: 1, delay: 0.25 })
     { y: 20, opacity: 0, ease: 'power1.out', duration: 0.15 },
     '-=3.25'
   ) // Shortened label format
-  .from('.p-contest', { opacity: 0, ease: 'power2.out', duration: 0.65 }, '-=3')
-  .from('.contest-txt-col .link-out', { opacity: 0, duration: 0.85 }, '-=2.75')
+  .from(
+    '.p-contest-blk',
+    { opacity: 0, ease: 'power2.out', duration: 0.65 },
+    '-=3'
+  )
+  .from(
+    '.contest-txt-col .footer-icons',
+    { opacity: 0, duration: 0.85 },
+    '-=2.75'
+  )
 // end contest timeline *******************************************************
 
 // logo txt ************************************************************
@@ -84,6 +85,15 @@ let logo = gsap.timeline({
   duration: 1,
 })
 
+window.addEventListener('load', () => {
+  gsap.to('#sec-hero-intro', {
+    opacity: 1,
+    duration: 2,
+    delay: 0.5,
+    ease: 'power2.out',
+  })
+})
+
 logo
   .addLabel('stop0', 0) // Start
   .addLabel('stop1', 0.0) // Show "The Bold 50"
@@ -94,20 +104,20 @@ logo
 
   // stop 0
   .to('.hawk-head', { opacity: 0, duration: 0.1 }, 'stop0')
-  .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
-  .to('.feathers .l', { opacity: 0, duration: 0.1 }, 'stop0')
-  .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
+  .to('.date', { opacity: 0.1, duration: 0.1 }, 'stop0')
+  .to('.feathers .l', { opacity: 0.1, duration: 0.1 }, 'stop0')
+  .to('.date', { opacity: 0.1, duration: 0.1 }, 'stop0')
   .to('.svg-logo', { x: '50%', duration: 0.1 }, 'stop0')
 
   // stop 1 The Bold 50
   .to('.numBg, .numFg', { opacity: 1, duration: 0.1 }, 'stop1')
 
   // stop 2 Est. 1976
-  .to('.numBg, .numFg', { opacity: 0, duration: 0.1 }, 'stop2')
+  .to('.numBg, .numFg', { opacity: 0.1, duration: 0.1 }, 'stop2')
   .to('.date', { opacity: 1, duration: 0.1 }, 'stop2')
 
   // stop 3 The Hawk Head
-  .to('.date', { opacity: 0, duration: 0.1 }, 'stop3')
+  .to('.date', { opacity: 0.1, duration: 0.1 }, 'stop3')
 
   .to('.hawk-head', { opacity: 1, y: '-20px', duration: 0.1 }, 'stop3')
 
@@ -119,7 +129,7 @@ logo
       opacity: 1,
 
       stagger: { amount: 0.3, from: 'center' },
-      duration: 0.01,
+      duration: 0.1,
     },
     'stop4'
   )
