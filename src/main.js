@@ -16,7 +16,7 @@ var $heroLine = '.herost1'
 ScrollSmoother.create({
   content: '#smooth-content',
   wrapper: '#smooth-wrapper',
-  smooth: 1,
+  smooth: 2,
   effects: true,
   normalizeScroll: true,
   ignoreMobileResize: true,
@@ -74,9 +74,9 @@ let logo = gsap.timeline({
   scrollTrigger: {
     trigger: '.logo-div',
     start: 'center center',
-    end: '370%',
+    end: '500%',
     pin: true,
-    // scrub: 1,
+    scrub: 1,
     toggleActions: 'restart restart none restart',
     markers: true,
     onUpdate: (self) => console.log('Progress:', self.progress),
@@ -131,4 +131,4 @@ logo
   .to('.date', { opacity: 1, duration: 0.1 }, 'stop5')
   .to('.numBg, .numFg', { opacity: 1, duration: 0.1 }, 'stop5')
 
-logo.totalDuration(3.3)
+logo.totalDuration(6.3)
