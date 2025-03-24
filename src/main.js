@@ -3,8 +3,8 @@ import { DrawSVGPlugin } from 'gsap/all'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin)
-var $lin = '.st1'
-var $heroLine = '.herost1'
+// var $lin = '.st1'
+// var $heroLine = '.herost1'
 
 // ScrollSmoother.create({
 //   content: '#smooth-content',
@@ -15,45 +15,45 @@ var $heroLine = '.herost1'
 
 // *************************
 
-gsap.from($heroLine, { duration: 3.5, drawSVG: 1, delay: 0.25 })
+// gsap.from($heroLine, { duration: 3.5, drawSVG: 1, delay: 0.25 })
 
 // contest timeline *******************************************************
-const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: '#sec-contest',
-    start: 'top 80%', // Adjust for better timing
-    end: 'bottom 20%', // Optional: Define when it stops
-    // markers: true,
-    toggleActions: 'restart none none none',
-  },
-})
+// const tl = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: '#sec-contest',
+//     start: 'top 80%', // Adjust for better timing
+//     end: 'bottom 20%', // Optional: Define when it stops
+//     // markers: true,
+//     toggleActions: 'restart none none none',
+//   },
+// })
 
-tl.from($lin, { duration: 3.5, drawSVG: 1, delay: 0.25 })
-  .from(
-    '.h2-contest',
-    { y: 20, opacity: 0, ease: 'power1.out', duration: 0.15 },
-    '-=3.25'
-  ) // Shortened label format
-  .from('.p-contest', { opacity: 0, ease: 'power2.out', duration: 0.65 }, '-=3')
-  .from('.contest-txt-col .link-out', { opacity: 0, duration: 0.85 }, '-=2.75')
+// tl.from($lin, { duration: 3.5, drawSVG: 1, delay: 0.25 })
+//   .from(
+//     '.h2-contest',
+//     { y: 20, opacity: 0, ease: 'power1.out', duration: 0.15 },
+//     '-=3.25'
+//   ) // Shortened label format
+//   .from('.p-contest', { opacity: 0, ease: 'power2.out', duration: 0.65 }, '-=3')
+//   .from('.contest-txt-col .link-out', { opacity: 0, duration: 0.85 }, '-=2.75')
 // end contest timeline *******************************************************
 
 // logo txt ************************************************************
-gsap.utils.toArray('.logo-div-txt').forEach((element) => {
-  gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: element,
-        start: '20% bottom',
-        toggleActions: 'play reverse play reverse',
-        // markers: true,
-      },
-    })
-    .from(element.querySelector('.logo-txt'), {
-      opacity: 0, // Ensures it fades in
-      duration: 0.65,
-    })
-})
+// gsap.utils.toArray('.logo-div-txt').forEach((element) => {
+//   gsap
+//     .timeline({
+//       scrollTrigger: {
+//         trigger: element,
+//         start: '20% bottom',
+//         toggleActions: 'play reverse play reverse',
+//         // markers: true,
+//       },
+//     })
+//     .from(element.querySelector('.logo-txt'), {
+//       opacity: 0, // Ensures it fades in
+//       duration: 0.65,
+//     })
+// })
 // end logo txt ************************************************************
 
 // *********************
