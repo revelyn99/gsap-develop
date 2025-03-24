@@ -106,6 +106,14 @@ window.addEventListener('load', () => {
   })
 })
 
+window.addEventListener('load', () => {
+  gsap.to('.hero-img, .sec-scroll', {
+    opacity: 1,
+    duration: 1,
+    delay: 0.5,
+  })
+})
+
 logo
   .addLabel('stop0', 0) // Start
   .addLabel('stop1', 0.0) // Show "The Bold 50"
