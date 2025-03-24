@@ -1,59 +1,59 @@
 import gsap from 'gsap'
-import { DrawSVGPlugin } from 'gsap/all'
+import { DrawSVGPlugin, ScrollSmoother } from 'gsap/all'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin)
-// var $lin = '.st1'
-// var $heroLine = '.herost1'
+gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, ScrollSmoother)
+var $lin = '.st1'
+var $heroLine = '.herost1'
 
-// ScrollSmoother.create({
-//   content: '#smooth-content',
-//   wrapper: '#smooth-wrapper',
-//   smooth: 2,
-//   // effects: true,
-// })
+ScrollSmoother.create({
+  content: '#smooth-content',
+  wrapper: '#smooth-wrapper',
+  smooth: 2,
+  // effects: true,
+})
 
 // *************************
 
-// gsap.from($heroLine, { duration: 3.5, drawSVG: 1, delay: 0.25 })
+gsap.from($heroLine, { duration: 3.5, drawSVG: 1, delay: 0.25 })
 
 // contest timeline *******************************************************
-// const tl = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: '#sec-contest',
-//     start: 'top 80%', // Adjust for better timing
-//     end: 'bottom 20%', // Optional: Define when it stops
-//     // markers: true,
-//     toggleActions: 'restart none none none',
-//   },
-// })
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#sec-contest',
+    start: 'top 80%', // Adjust for better timing
+    end: 'bottom 20%', // Optional: Define when it stops
+    // markers: true,
+    toggleActions: 'restart none none none',
+  },
+})
 
-// tl.from($lin, { duration: 3.5, drawSVG: 1, delay: 0.25 })
-//   .from(
-//     '.h2-contest',
-//     { y: 20, opacity: 0, ease: 'power1.out', duration: 0.15 },
-//     '-=3.25'
-//   ) // Shortened label format
-//   .from('.p-contest', { opacity: 0, ease: 'power2.out', duration: 0.65 }, '-=3')
-//   .from('.contest-txt-col .link-out', { opacity: 0, duration: 0.85 }, '-=2.75')
+tl.from($lin, { duration: 3.5, drawSVG: 1, delay: 0.25 })
+  .from(
+    '.h2-contest',
+    { y: 20, opacity: 0, ease: 'power1.out', duration: 0.15 },
+    '-=3.25'
+  ) // Shortened label format
+  .from('.p-contest', { opacity: 0, ease: 'power2.out', duration: 0.65 }, '-=3')
+  .from('.contest-txt-col .link-out', { opacity: 0, duration: 0.85 }, '-=2.75')
 // end contest timeline *******************************************************
 
 // logo txt ************************************************************
-// gsap.utils.toArray('.logo-div-txt').forEach((element) => {
-//   gsap
-//     .timeline({
-//       scrollTrigger: {
-//         trigger: element,
-//         start: '20% bottom',
-//         toggleActions: 'play reverse play reverse',
-//         // markers: true,
-//       },
-//     })
-//     .from(element.querySelector('.logo-txt'), {
-//       opacity: 0, // Ensures it fades in
-//       duration: 0.65,
-//     })
-// })
+gsap.utils.toArray('.logo-div-txt').forEach((element) => {
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: element,
+        start: '20% bottom',
+        toggleActions: 'play reverse play reverse',
+        // markers: true,
+      },
+    })
+    .from(element.querySelector('.logo-txt'), {
+      opacity: 0, // Ensures it fades in
+      duration: 0.65,
+    })
+})
 // end logo txt ************************************************************
 
 // *********************
@@ -65,33 +65,27 @@ let logo = gsap.timeline({
     start: 'center center',
     end: '370%',
     pin: true,
-    scrub: true, // Or try scrub: 0.3
-    anticipatePin: 1,
+    // scrub: 1,
+    toggleActions: 'restart restart none restart',
     markers: true,
     onUpdate: (self) => console.log('Progress:', self.progress),
   },
   duration: 1,
 })
 
-logo
-  .addLabel('stop0', 0) // Start
-  // .addLabel('stop1', 0.0) // Show "The Bold 50"
-  // .addLabel('stop2', 0.8) // Show "Est. 1976"
-  // .addLabel('stop3', 1.3) // Show Hawk Head
-  // .addLabel('stop4', 1.7) // Show Feathers
-  // .addLabel('stop5', 2.2) // Final touch: slight rotation
+logo.addLabel('stop0', 0) // Start
+// .addLabel('stop1', 0.0) // Show "The Bold 50"
+// .addLabel('stop2', 0.8) // Show "Est. 1976"
+// .addLabel('stop3', 1.3) // Show Hawk Head
+// .addLabel('stop4', 1.7) // Show Feathers
+// .addLabel('stop5', 2.2) // Final touch: slight rotation
 
-  // // stop 0
-  // .to('.hawk-head', { opacity: 0, duration: 0.1 }, 'stop0')
-  // .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
-  // .to('.feathers .l', { opacity: 0, duration: 0.1 }, 'stop0')
-  // .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
-  // .to('.svg-logo', { x: '50%', duration: 0.1 }, 'stop0')
-  .to('.svg-logo', {
-    rotation: 11,
-    duration: 20,
-    force3D: true,
-  })
+// // stop 0
+// .to('.hawk-head', { opacity: 0, duration: 0.1 }, 'stop0')
+// .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
+// .to('.feathers .l', { opacity: 0, duration: 0.1 }, 'stop0')
+// .to('.date', { opacity: 0, duration: 0.1 }, 'stop0')
+// .to('.svg-logo', { x: '50%', duration: 0.1 }, 'stop0')
 
 // // stop 1 The Bold 50
 // .to('.numBg, .numFg', { opacity: 1, duration: 0.1 }, 'stop1')
