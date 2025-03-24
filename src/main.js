@@ -103,7 +103,7 @@ logo
   .addLabel('stop5', 1.6) // Final touch: slight rotation
 
   // stop 0
-  .to('.hawk-head', { opacity: 0, duration: 0.1 }, 'stop0')
+  .to('.hawk-head', { opacity: 0, scale: 0.95, duration: 0.1 }, 'stop0')
   .to('.date', { opacity: 0.1, duration: 0.1 }, 'stop0')
   .to('.feathers .l', { opacity: 0.1, duration: 0.1 }, 'stop0')
   .to('.date', { opacity: 0.1, duration: 0.1 }, 'stop0')
@@ -119,7 +119,17 @@ logo
   // stop 3 The Hawk Head
   .to('.date', { opacity: 0.1, duration: 0.1 }, 'stop3')
 
-  .to('.hawk-head', { opacity: 1, y: '-20px', duration: 0.1 }, 'stop3')
+  .to(
+    '.hawk-head',
+    {
+      opacity: 1,
+      scale: 1,
+      transformOrigin: 'center center',
+      y: -5,
+      duration: 0.1,
+    },
+    'stop3'
+  )
 
   // stop 4 Feathers
   .to('.hawk-head', { opacity: 0, duration: 0.01 }, 'stop4')
@@ -127,8 +137,9 @@ logo
     '.feathers .l',
     {
       opacity: 1,
-
-      stagger: { amount: 0.3, from: 'center' },
+      x: '20%',
+      scale: 1,
+      stagger: { amount: 0.3, from: 'left' },
       duration: 0.1,
     },
     'stop4'
