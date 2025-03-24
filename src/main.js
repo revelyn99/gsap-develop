@@ -21,7 +21,7 @@ ScrollSmoother.create({
   normalizeScroll: true,
   ignoreMobileResize: true,
   // Disable on mobile
-  smoothTouch: 0,
+  // smoothTouch: 0,
 })
 
 // *************************
