@@ -1,6 +1,6 @@
 import gsap from 'gsap'
-import { DrawSVGPlugin } from 'gsap/all'
-import { ScrollTrigger, ScrollSmoother } from 'gsap/ScrollTrigger'
+import { DrawSVGPlugin, ScrollSmoother } from 'gsap/all'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, ScrollSmoother)
 var $lin = '.st1'
