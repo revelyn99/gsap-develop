@@ -1,8 +1,8 @@
 import gsap from 'gsap'
-import { DrawSVGPlugin } from 'gsap/all'
+import { DrawSVGPlugin, ScrollSmoother } from 'gsap/all'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin)
+gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin, ScrollSmoother)
 var $lin = '.st1'
 var $heroLine = '.herost1'
 
@@ -12,6 +12,17 @@ var $heroLine = '.herost1'
 //   smooth: 2,
 //   // effects: true,
 // })
+
+ScrollSmoother.create({
+  content: '#smooth-content',
+  wrapper: '#smooth-wrapper',
+  smooth: 1,
+  effects: true,
+  normalizeScroll: true,
+  ignoreMobileResize: true,
+  // Disable on mobile
+  smoothTouch: 0,
+})
 
 // *************************
 
