@@ -43,21 +43,22 @@ const tl = gsap.timeline({
 })
 
 tl.from($lin, { duration: 3.5, drawSVG: 1, delay: 0.25 })
-  .from(
-    '.h2-contest',
-    { y: 20, opacity: 0, ease: 'power1.out', duration: 0.15 },
-    '-=3.25'
-  ) // Shortened label format
-  .from(
-    '.p-contest-blk',
-    { opacity: 0, ease: 'power2.out', duration: 0.65 },
-    '-=3'
-  )
-  .from(
-    '.contest-txt-col .footer-icons',
-    { opacity: 0, duration: 0.85 },
-    '-=2.75'
-  )
+
+// .from(
+//   '.h2-contest',
+//   { y: 20, opacity: 0, ease: 'power1.out', duration: 0.15 },
+//   '-=3.25'
+// ) // Shortened label format
+// .from(
+//   '.p-contest-blk',
+//   { opacity: 0, ease: 'power2.out', duration: 0.65 },
+//   '-=3'
+// )
+// .from(
+//   '.contest-txt-col .footer-icons',
+//   { opacity: 0, duration: 0.85 },
+//   '-=2.75'
+// )
 // end contest timeline *******************************************************
 
 // logo txt ************************************************************
