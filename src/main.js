@@ -31,7 +31,7 @@ const tl2 = gsap.timeline({
 
 tl2.from($lin2, { duration: 3.5, drawSVG: 1, delay: 0.25 })
 
-// contest timeline *******************************************************
+// contest timeline **************************************************
 const tl = gsap.timeline({
   scrollTrigger: {
     trigger: '#sec-contest',
