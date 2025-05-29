@@ -165,16 +165,3 @@ logo
   .to('.numBg, .numFg', { opacity: 1, duration: 0.1 }, 'stop5')
 
 logo.totalDuration(3)
-
-window.scrollTo(0, 0) // Force to top
-gsap.registerPlugin(ScrollSmoother)
-
-const smoother = ScrollSmoother.create({
-  smooth: 1,
-  effects: true,
-})
-
-// Wait for the DOM to be fully loaded
-window.addEventListener('load', () => {
-  smoother.refresh() // Recalculate the layout after everything is loaded
-})
